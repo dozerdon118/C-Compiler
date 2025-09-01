@@ -1,0 +1,71 @@
+<!doctype html>
+.cols{ display:grid; grid-template-columns: 1fr 1fr; gap:12px }
+.pane{ border:1px solid #ddd; padding:8px; height:160px; overflow:auto; white-space:pre-wrap; background:#f9f9f9 }
+.status{ margin-top:8px }
+.samples{ margin-bottom:8px }
+</style>
+</head>
+<body>
+<h2>C Compiler Website</h2>
+
+
+<div class="samples">
+<label>Sample: </label>
+<select id="sampleSelect"></select>
+<button id="loadSample">Load</button>
+</div>
+
+
+<label>Code</label>
+<textarea id="code"></textarea>
+
+
+<div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+<label>stdin</label>
+<textarea id="stdin" style="height:80px;width:40%"></textarea>
+<div>
+<label>std</label>
+<select id="stdSelect">
+<option value="c17">c17</option>
+<option value="gnu17">gnu17</option>
+<option value="c11">c11</option>
+<option value="gnu11">gnu11</option>
+<option value="c99">c99</option>
+</select>
+<label>opt</label>
+<select id="optSelect">
+<option>O0</option>
+<option>O1</option>
+<option>O2</option>
+<option>O3</option>
+</select>
+<br/><br/>
+<button id="runBtn">Run</button>
+</div>
+</div>
+
+
+<div class="cols" style="margin-top:12px">
+<div>
+<h4>Compiler stderr</h4>
+<div id="compileStderr" class="pane"></div>
+</div>
+<div>
+<h4>Program stdout</h4>
+<div id="progStdout" class="pane"></div>
+</div>
+</div>
+<div style="margin-top:12px">
+<h4>Program stderr</h4>
+<div id="progStderr" class="pane"></div>
+</div>
+
+
+<div class="status">
+<span id="statusLine">Idle</span>
+</div>
+
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
